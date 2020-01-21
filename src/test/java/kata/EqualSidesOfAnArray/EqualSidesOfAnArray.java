@@ -1,12 +1,15 @@
 package kata.EqualSidesOfAnArray;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EqualSidesOfAnArray {
-    public static Integer findEvenIndex(ArrayList<Integer> numbers) {
+    public static Integer findEvenIndex(int[] arr) {
 
-        for (int index = 0; index <= numbers.size(); index++) {
+        List<Integer> numbers = Arrays.stream(arr).boxed().collect(Collectors.toList());
+
+        for (int index = 0; index < numbers.size(); index++) {
             List<Integer> leftSide = numbers.subList(0, index);
             List<Integer> rightSide = numbers.subList(index + 1, numbers.size());
 
